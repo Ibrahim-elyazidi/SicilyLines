@@ -1,3 +1,31 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+index:
+    path: /
+    controller: App\Controller\AccueilController::index
+
+index1:
+    path: /
+    controller: App\Controller\AboutUsController::index
+
+index2:
+    path: /
+    controller: App\Controller\ConfirmController::index
+
+index3:
+    path: /
+    controller: App\Controller\ContactController::index
+
+index4:
+    path: /
+    controller: App\Controller\LoginController::index
+
+index6:
+    path: /
+    controller: App\Controller\ResearchController::index
+
+index7:
+    path: /
+    controller: App\Controller\ReservationController::index
+
+index8:
+    path: /
+    controller: App\Controller\SignUpController::index

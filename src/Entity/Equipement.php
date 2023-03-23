@@ -19,11 +19,11 @@ class Equipement
     private ?string $libelle = null;
 
     #[ORM\OneToMany(mappedBy: 'equipement', targetEntity: EquipementBateau::class)]
-    private Collection $equipementBateaus;
+    private Collection $equipementBateau;
 
     public function __construct()
     {
-        $this->equipementBateaus = new ArrayCollection();
+        $this->equipementBateau = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -46,15 +46,15 @@ class Equipement
     /**
      * @return Collection<int, EquipementBateau>
      */
-    public function getEquipementBateaus(): Collection
+    public function getEquipementBateau(): Collection
     {
-        return $this->equipementBateaus;
+        return $this->equipementBateau;
     }
 
     public function addEquipementBateau(EquipementBateau $equipementBateau): self
     {
-        if (!$this->equipementBateaus->contains($equipementBateau)) {
-            $this->equipementBateaus->add($equipementBateau);
+        if (!$this->equipementBateau->contains($equipementBateau)) {
+            $this->equipementBateau->add($equipementBateau);
             $equipementBateau->setEquipement($this);
         }
 
@@ -63,7 +63,7 @@ class Equipement
 
     public function removeEquipementBateau(EquipementBateau $equipementBateau): self
     {
-        if ($this->equipementBateaus->removeElement($equipementBateau)) {
+        if ($this->equipementBateau->removeElement($equipementBateau)) {
             // set the owning side to null (unless already changed)
             if ($equipementBateau->getEquipement() === $this) {
                 $equipementBateau->setEquipement(null);

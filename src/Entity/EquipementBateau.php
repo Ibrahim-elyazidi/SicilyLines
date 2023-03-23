@@ -16,10 +16,10 @@ class EquipementBateau
     #[ORM\Column]
     private ?int $quantite = null;
 
-    #[ORM\ManyToOne(inversedBy: 'equipementBateaus')]
+    #[ORM\ManyToOne(inversedBy: 'equipementBateau')]
     private ?Equipement $equipement = null;
 
-    #[ORM\ManyToOne(inversedBy: 'equipementBateaus')]
+    #[ORM\ManyToOne(inversedBy: 'equipementBateau')]
     private ?Bateau $bateau = null;
 
     public function getId(): ?int

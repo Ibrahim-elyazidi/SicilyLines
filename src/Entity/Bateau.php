@@ -31,16 +31,16 @@ class Bateau
     private Collection $traversee;
 
     #[ORM\OneToMany(mappedBy: 'bateau', targetEntity: CategorieBateau::class)]
-    private Collection $categorieBateaus;
+    private Collection $categorieBateau;
 
     #[ORM\OneToMany(mappedBy: 'bateau', targetEntity: EquipementBateau::class)]
-    private Collection $equipementBateaus;
+    private Collection $equipementBateau;
 
     public function __construct()
     {
         $this->traversee = new ArrayCollection();
-        $this->categorieBateaus = new ArrayCollection();
-        $this->equipementBateaus = new ArrayCollection();
+        $this->categorieBateau = new ArrayCollection();
+        $this->equipementBateau = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -129,15 +129,15 @@ class Bateau
     /**
      * @return Collection<int, CategorieBateau>
      */
-    public function getCategorieBateaus(): Collection
+    public function getCategorieBateau(): Collection
     {
-        return $this->categorieBateaus;
+        return $this->categorieBateau;
     }
 
     public function addCategorieBateau(CategorieBateau $categorieBateau): self
     {
-        if (!$this->categorieBateaus->contains($categorieBateau)) {
-            $this->categorieBateaus->add($categorieBateau);
+        if (!$this->categorieBateau->contains($categorieBateau)) {
+            $this->categorieBateau->add($categorieBateau);
             $categorieBateau->setBateau($this);
         }
 
@@ -146,7 +146,7 @@ class Bateau
 
     public function removeCategorieBateau(CategorieBateau $categorieBateau): self
     {
-        if ($this->categorieBateaus->removeElement($categorieBateau)) {
+        if ($this->categorieBateau->removeElement($categorieBateau)) {
             // set the owning side to null (unless already changed)
             if ($categorieBateau->getBateau() === $this) {
                 $categorieBateau->setBateau(null);
@@ -159,15 +159,15 @@ class Bateau
     /**
      * @return Collection<int, EquipementBateau>
      */
-    public function getEquipementBateaus(): Collection
+    public function getEquipementBateau(): Collection
     {
-        return $this->equipementBateaus;
+        return $this->equipementBateau;
     }
 
     public function addEquipementBateau(EquipementBateau $equipementBateau): self
     {
-        if (!$this->equipementBateaus->contains($equipementBateau)) {
-            $this->equipementBateaus->add($equipementBateau);
+        if (!$this->equipementBateau->contains($equipementBateau)) {
+            $this->equipementBateau->add($equipementBateau);
             $equipementBateau->setBateau($this);
         }
 
@@ -176,7 +176,7 @@ class Bateau
 
     public function removeEquipementBateau(EquipementBateau $equipementBateau): self
     {
-        if ($this->equipementBateaus->removeElement($equipementBateau)) {
+        if ($this->equipementBateau->removeElement($equipementBateau)) {
             // set the owning side to null (unless already changed)
             if ($equipementBateau->getBateau() === $this) {
                 $equipementBateau->setBateau(null);

@@ -30,9 +30,13 @@ class Liaison
     #[ORM\ManyToOne(inversedBy: 'liaison')]
     private ?Secteur $secteur = null;
 
+    #[ORM\OneToMany(mappedBy: 'liaison', targetEntity: Tarifer::class)]
+    private Collection $tarifers;
+
     public function __construct()
     {
         $this->traversee = new ArrayCollection();
+        $this->tarifers = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -114,6 +118,36 @@ class Liaison
     public function setSecteur(?Secteur $secteur): self
     {
         $this->secteur = $secteur;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Tarifer>
+     */
+    public function getTarifers(): Collection
+    {
+        return $this->tarifers;
+    }
+
+    public function addTarifer(Tarifer $tarifer): self
+    {
+        if (!$this->tarifers->contains($tarifer)) {
+            $this->tarifers->add($tarifer);
+            $tarifer->setLiaison($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTarifer(Tarifer $tarifer): self
+    {
+        if ($this->tarifers->removeElement($tarifer)) {
+            // set the owning side to null (unless already changed)
+            if ($tarifer->getLiaison() === $this) {
+                $tarifer->setLiaison(null);
+            }
+        }
 
         return $this;
     }

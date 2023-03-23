@@ -22,6 +22,9 @@ class Tarifer
     #[ORM\ManyToOne(inversedBy: 'tarifers')]
     private ?Type $type = null;
 
+    #[ORM\ManyToOne(inversedBy: 'tarifers')]
+    private ?Liaison $liaison = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -59,6 +62,18 @@ class Tarifer
     public function setType(?Type $type): self
     {
         $this->type = $type;
+
+        return $this;
+    }
+
+    public function getLiaison(): ?Liaison
+    {
+        return $this->liaison;
+    }
+
+    public function setLiaison(?Liaison $liaison): self
+    {
+        $this->liaison = $liaison;
 
         return $this;
     }

@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New TypeReservation{% endblock %}
+
+{% block body %}
+    <h1>Create new TypeReservation</h1>
+
+    {{ include('type_reservation/_form.html.twig') }}
+
+    <a href="{{ path('app_type_reservation_index') }}">back to list</a>
+{% endblock %}

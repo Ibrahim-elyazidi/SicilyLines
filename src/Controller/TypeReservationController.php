@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/type/reservation')]
+#[Route('/type_reservation')]
 class TypeReservationController extends AbstractController
 {
     #[Route('/', name: 'app_type_reservation_index', methods: ['GET'])]

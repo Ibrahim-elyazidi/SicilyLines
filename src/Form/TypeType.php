@@ -3,9 +3,11 @@
 namespace App\Form;
 
 use App\Entity\Type;
+use App\Entity\Categorie;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class TypeType extends AbstractType
 {
@@ -13,7 +15,10 @@ class TypeType extends AbstractType
     {
         $builder
             ->add('libelle')
-            ->add('categorie')
+            ->add('categorie', EntityType::class, [
+                'class'=> Categorie::class,
+                'choice_label'=>"libelle",
+            ])
         ;
     }
 

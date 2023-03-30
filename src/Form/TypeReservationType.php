@@ -3,9 +3,12 @@
 namespace App\Form;
 
 use App\Entity\TypeReservation;
+use App\Entity\Type;
+use App\Entity\Reservation;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class TypeReservationType extends AbstractType
 {
@@ -13,8 +16,14 @@ class TypeReservationType extends AbstractType
     {
         $builder
             ->add('nombre')
-            ->add('reservation')
-            ->add('type')
+            ->add('reservation', EntityType::class, [
+                'class'=> Reservation::class,
+                'choice_label'=> 'id',
+            ])
+            ->add('type', EntityType::class, [
+                'class'=> Type::class,
+                'choice_label'=> 'libelle',
+            ])
         ;
     }
 

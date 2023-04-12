@@ -4,15 +4,17 @@
 
 {% block body %}
 <style>
-body{
-    background-color: aqua;
-}
+
 
 .navbar-nav .nav-link.active, .navbar-nav .show>.nav-link {
     color:blue;
 }
+.navbar
+{
+  background-color:#dcdcdc;
+}
 </style>
-        <nav class="navbar navbar-expand-lg bg-light">
+        <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
                 <a class="navbar-brand" href="index.php"><img src="../Images/Liberty.png" alt="LibertyLines_Logo" weight = 50 height = "50"> </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,30 +23,50 @@ body{
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" aria-current="page" href="\accueil">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
+                        <a class="nav-link" href="\reserv">Reservation</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Dropdown
-                        </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled">Disabled</a>
-        </li>
-      </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="\aboutUs">About_us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="\contact">Contact</a>
+                    </li>
+                  </ul>
+                <form style="margin-right:400px" class="d-flex" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Recherche</button>
+                </form>
+
+               <a href="\login"><button  style="margin:4px;" class="btn btn-primary" type="submit">Login</button></a>
+                <a href="\client\new"><button  style="margin:4px;" class="btn btn-primary" type="submit">Signin</button></a>
+            </nav>
+
+        <br><br>
+        <h1>On facilite votre <br>traversée avec <br> Liberty Lines .</h1>
+
+        <h6>Quelle sera votre prochaîne destination ?<h6>
+
+
+        <button class="btn btn-primary" type="submit" <a href="\reserv" /a>Reservation</button>
+        <button class="btn btn-outline-primary" type="submit">A propos de nous </button>
+
+
+
+
+        <br><br><br>
+        <center><h5> Un voyage pas comme les autres</h5></center>
+                
+
+
+
+
+
+
+
     </div>
   </div>
 </nav> 

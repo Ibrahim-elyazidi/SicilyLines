@@ -3,6 +3,9 @@
 namespace App\Form;
 
 use App\Entity\EquipementBateau;
+use App\Entity\Bateau;
+use App\Entity\Equipement;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -13,8 +16,14 @@ class EquipementBateauType extends AbstractType
     {
         $builder
             ->add('quantite')
-            ->add('equipement')
-            ->add('bateau')
+            ->add('equipement', EntityType::class, [
+                'class'=> Equipement::class,
+                'choice_label'=> 'libelle',
+            ])
+            ->add('bateau', EntityType::class, [
+                'class'=> Bateau::class,
+                'choice_label'=> 'nom',
+            ])
         ;
     }
 
